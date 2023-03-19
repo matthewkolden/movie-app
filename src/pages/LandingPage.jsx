@@ -6,7 +6,7 @@ export function LandingPage() {
       <div className="absolute lg:pb-8 lg:mb-16 w-screen z-0">
         <img
           src="landing.jpg"
-          className=" w-full brightness-50 opacity-8 h-[800px] w-full  object-none"
+          className=" w-full brightness-50 opacity-8 h-[800px]   object-none"
           alt=""
         />
       </div>
