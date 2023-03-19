@@ -1,100 +1,34 @@
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { MovieDisplay } from "../components/MovieDisplay";
 
-import { useController } from "../Controller";
-import ReviewForm from "../components/ReviewForm";
-import Review from "../components/Review";
-
-import { moviePageClasses } from "../appClasses";
-
-export function MoviePage({ user }) {
-  const {
-    getMoviePage,
-    movie,
-    setMovie,
-    createReview,
-    getAllReviews,
-    reviews,
-  } = useController();
-
-  const params = useParams();
-  const id = params.id;
-
-  useEffect(() => {
-    async function grabMovie() {
-      await setMovie(getMoviePage(id));
-    }
-    grabMovie();
-    getAllReviews();
-  }, []);
-
+export function LandingPage() {
   return (
-    <div className="movies">
-      <div className={moviePageClasses.container}>
-        {movie && (
-          <>
-            <div className={moviePageClasses.imageContainer}>
-              <div className={moviePageClasses.imageFlexContainer}>
-                <img className={moviePageClasses.image} src={movie.Poster} />
-                <div className="flex flex-col gap-6 ">
-                  <h1 className={moviePageClasses.title}>{movie.Title}</h1>
-                  <div className={moviePageClasses.div}>
-                    <h4 className="font-semibold ">Actors:</h4>
-                    <p>{movie.Actors}</p>
-                  </div>
-                  <div className={moviePageClasses.div}>
-                    <h4 className="font-semibold">Director:</h4>
-                    <p>{movie.Director}</p>
-                  </div>
-                  <div className={moviePageClasses.div}>
-                    <h4 className="font-semibold">Genre:</h4>
-                    <p>{movie.Genre}</p>
-                  </div>
-                  <p className={moviePageClasses.plot}>{movie.Plot}</p>
-                  <div className={moviePageClasses.div}>
-                    <h4 className="font-semibold ">Runtime:</h4>
-                    <p>{movie.Runtime}</p>
-                  </div>
-
-                  <div className="flex flex-col my-16">
-                    {movie?.Ratings?.map((rating, index) => (
-                      <>
-                        <div
-                          key={index}
-                          className={moviePageClasses.ratingContainer}
-                        >
-                          <div className="font-semibold">{rating.Source}</div>
-                          <div>{rating.Value}</div>
-                        </div>
-                      </>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <h2 className={moviePageClasses.reviewTitle}>Reviews</h2>
-            <div className={moviePageClasses.reviewsContainer}>
-              <div className={moviePageClasses.reviewListContainer}>
-                {reviews && reviews.length > 0 && (
-                  <>
-                    {reviews.map((review, i) => {
-                      if (review.movie === movie.imdbID)
-                        return <Review key={i} review={review} user={user} />;
-                    })}
-                  </>
-                )}
-              </div>
-              <ReviewForm
-                createReview={createReview}
-                movie={movie}
-                user={user}
-              />
-            </div>
-          </>
-        )}
+    <>
+      <div className="absolute lg:pb-8 lg:mb-16 w-screen z-0">
+        <img
+          src="landing.jpg"
+          className=" w-full brightness-50 opacity-8 h-[800px] w-full  object-none"
+          alt=""
+        />
       </div>
-    </div>
+      <div className="flex flex-col items-center justify-center gap-8 px-auto mx-auto w-screen max-w-screen-lg lg:px-32 md:px-16 my-auto lg:py-8 blur-none h-[800px] bg-black bg-opacity-30">
+        <h2 className="text-3xl font-bold text-center">
+          DaMaFe Premium Movie Reviews
+        </h2>
+        <p className="font-normal text-lg text-center">
+          Welcome to DaMaFe Movies, your ultimate destination for unbiased and
+          insightful movie reviews! Our platform is dedicated to providing you
+          with the most comprehensive and honest reviews on the latest
+          blockbusters, indie flicks, and timeless classics. Our team of expert
+          reviewers carefully watches and analyzes every movie to bring you a
+          fair and balanced opinion that is both informative and entertaining.
+          Whether you are a casual moviegoer or a hardcore cinephile, DaMaFe
+          Movies has something for everyone. So sit back, grab some popcorn, and
+          let us guide you through the wonderful world of cinema. Join us now
+          and discover your next favorite movie!
+        </p>
+      </div>
+      <MovieDisplay />
+    </>
   );
 }
 

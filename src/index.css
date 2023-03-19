@@ -1,7 +1,7 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
-
+@tailwind utilities; */
+/* 
 html {
   background-color: rgb(15 23 42);
   color: #fff;
@@ -33,9 +33,9 @@ html {
 
 input:focus {
   color: black;
-}
+} */
 
-.landing {
+/* .landing {
   background-color: rgb(15 23 42);
 }
 
@@ -44,5 +44,5 @@ input:focus {
 }
 .movies {
   background-color: rgb(15 23 42);
-}
+} */
 /* https://www.osvnews.com/wp-content/uploads/2023/02/Film-photo-via-Canva-Pro-600x337.png */
