@@ -1,4 +1,3 @@
-import { Component } from "react";
 import { signUp } from "../services/usersService";
 
 export default class SignUpForm extends Component {
