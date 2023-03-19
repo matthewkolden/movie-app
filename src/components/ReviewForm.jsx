@@ -1,31 +1,31 @@
-import { useState } from 'react'
-import { useController } from '../Controller'
+import { useState } from "react";
+import { useController } from "../Controller";
 
 export default function ReviewForm({ movie, user }) {
-  const { createReview } = useController()
+  const { createReview } = useController();
   const [formData, setFormData] = useState({
-    body: '',
-    author: '',
-  })
+    body: "",
+    author: "",
+  });
 
-  const [error, setError] = useState('')
+  const [error, setError] = useState("");
 
   function handleChange(evt) {
-    setFormData({ ...formData, [evt.target.name]: evt.target.value })
+    setFormData({ ...formData, [evt.target.name]: evt.target.value });
   }
 
   const handleSubmit = async (evt) => {
-    evt.preventDefault()
+    evt.preventDefault();
     try {
-      await createReview(formData, movie.imdbID, user)
+      await createReview(formData, movie.imdbID, user);
       setFormData({
-        body: '',
-        author: '',
-      })
+        body: "",
+        author: "",
+      });
     } catch {
-      setError('Editing Failed - Try Again')
+      setError("Editing Failed - Try Again");
     }
-  }
+  };
   return (
     <>
       <form
@@ -35,7 +35,7 @@ export default function ReviewForm({ movie, user }) {
       >
         <div className="flex flex-col mb-4">
           <label className="font-semibold text-lg mb-2" htmlFor="body">
-            Create Review
+            Create Your Review - Everyone's a Critic!
           </label>
           <textarea
             className="border p-2 bg-slate-800 border-slate-700"
@@ -67,5 +67,5 @@ export default function ReviewForm({ movie, user }) {
         </button>
       </form>
     </>
-  )
+  );
 }

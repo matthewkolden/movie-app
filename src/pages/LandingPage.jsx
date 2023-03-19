@@ -1,8 +1,8 @@
-import { MovieDisplay } from '../components/MovieDisplay'
+import { MovieDisplay } from "../components/MovieDisplay";
 
 export function LandingPage() {
   return (
-    <div>
+    <div className="landing">
       <div className="flex flex-col items-center gap-8 px-auto py-12 mx-auto max-w-screen-lg lg:px-32 md:px-16 lg:py-8 lg:my-16">
         <h2 className="text-3xl font-bold text-center">
           DaMaFe Premium Movie Reviews
@@ -22,5 +22,5 @@ export function LandingPage() {
       </div>
       <MovieDisplay />
     </div>
-  )
+  );
 }
