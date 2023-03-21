@@ -36,7 +36,7 @@ class ReviewService {
       movie: movie,
       moviePoster: moviePoster,
       user: user,
-      moviePageLink: moviePageLink
+      moviePageLink: moviePageLink,
     })
   }
 
@@ -48,7 +48,7 @@ class ReviewService {
     return await this.instance.put(`/${id}`, {
       body: review.body,
       author: review.author,
-      user: review.user
+      user: review.user,
     })
   }
 }
