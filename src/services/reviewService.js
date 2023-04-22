@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 class ReviewService {
-  baseURL = 'http://localhost:3001/api/reviews'
+  baseURL = 'matthew--damafe-movies/api/reviews'
 
   constructor() {
     this.instance = axios.create({ baseURL: this.baseURL })
