@@ -9,6 +9,7 @@ export default function UserReviewPage({ user }) {
 
   useEffect(() => {
     getAllReviews()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

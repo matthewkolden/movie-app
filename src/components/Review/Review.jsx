@@ -33,6 +33,7 @@ export default function Review({ review, user }) {
 
   useEffect(() => {
     getAllReviews()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

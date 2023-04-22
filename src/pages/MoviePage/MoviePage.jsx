@@ -17,6 +17,7 @@ export default function MoviePage({ user }) {
   useEffect(() => {
     setMovie(getMoviePage(id))
     getAllReviews()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
