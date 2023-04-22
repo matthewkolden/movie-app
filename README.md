@@ -10,7 +10,7 @@ DaMaFe movie theater provides a platform for movie enthusiasts to share their ex
 
 ## Getting started
 
-To start using the platform, visit [https://damafe.herokuapp.com/](https://damafe.herokuapp.com/) and sign up if you are a new user or use your existing name and password.
+To start using the platform, visit [damafe-movies.netlify.app](https://damafe-movies.netlify.app/) and sign up if you are a new user or use your existing name and password.
 
 ## Technologies Used
 
