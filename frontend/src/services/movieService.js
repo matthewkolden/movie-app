@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 class MovieService {
-  baseURL = 'http://localhost:3001/api/movies'
+  baseURL = 'https://movie-app-production-0aa7.up.railway.app/api/movies'
 
   constructor() {
     this.instance = axios.create({ baseURL: this.baseURL })
