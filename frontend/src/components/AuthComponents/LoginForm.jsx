@@ -5,8 +5,8 @@ import authComponentsClasses from './authComponentsClasses'
 
 export default function LoginForm({ setUser, setShowLogin, showLogin }) {
   const [credentials, setCredentials] = useState({
-    email: '',
-    password: '',
+    email: 'test@testing',
+    password: '1234',
   })
   const [error, setError] = useState('')
 
