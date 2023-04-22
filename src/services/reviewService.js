@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 class ReviewService {
-  baseURL = 'matthew--damafe-movies/api/reviews'
+  baseURL = 'https://matthew--damafe-movies.netlify.app/api/reviews'
 
   constructor() {
     this.instance = axios.create({ baseURL: this.baseURL })
