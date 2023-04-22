@@ -1,32 +1,21 @@
 import { useController } from '../../Controller'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import adminPageClasses from './adminPageClasses'
 
-export default function AdminPage({}) {
-  const { getMovie, getAllMovies, movies } = useController()
+export default function AdminPage() {
+  const { getMovie, movies } = useController()
   const [input, setInput] = useState('')
-
-  const [isLoading, setIsLoading] = useState(true)
 
   const handleInputChange = (event) => {
     setInput(event.target.value)
   }
 
   const handleSubmit = async () => {
-    setIsLoading(true)
     await getMovie(input)
     setInput('')
   }
-
-  useEffect(() => {
-    async function fetchMovies() {
-      await getAllMovies()
-      setIsLoading(false)
-    }
-    fetchMovies()
-  }, [isLoading])
 
   return (
     <div className={adminPageClasses.container}>
@@ -43,11 +32,9 @@ export default function AdminPage({}) {
       />
       <h4 className={adminPageClasses.movieHeader}>Current movies:</h4>
       <div className={adminPageClasses.moviesContainer}>
-        {movies.map((movie, i) => {
-          {
-            return movie ? <Loaded movie={movie} key={i} /> : <Loading />
-          }
-        })}
+        {movies.map((movie, i) =>
+          movie ? <Loaded movie={movie} key={i} /> : <Loading />
+        )}
       </div>
     </div>
   )

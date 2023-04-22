@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className={footerClasses.footer}>
       <div className={footerClasses.footerContainer}>
         <div className={footerClasses.footerLogo}>
-          <a href="#" className="flex items-center mb-4 sm:mb-0">
+          <a href="/" className="flex items-center mb-4 sm:mb-0">
             <img
               src="favicon-32x32.png"
               className={footerClasses.footerLogoImg}
@@ -26,19 +26,14 @@ export default function Footer() {
                 Reviews
               </Link>
             </li>
-            <li>
-              <a href="#" className={footerClasses.footerLink}>
-                Contact
-              </a>
-            </li>
           </ul>
         </div>
         <hr className={footerClasses.footerRule} />
         <span className={footerClasses.footerCopy}>
           ©{' '}
-          <a href="#" className={footerClasses.footerLink}>
+          <Link to={'/reviews'} className={footerClasses.footerLink}>
             DaMaFe™
-          </a>
+          </Link>
           All Rights Reserved.
         </span>
       </div>

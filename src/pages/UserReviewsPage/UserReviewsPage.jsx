@@ -20,8 +20,10 @@ export default function UserReviewPage({ user }) {
             {reviews && reviews.length > 0 && (
               <>
                 {reviews.map((review, i) => {
-                  if (review.user === user._id)
+                  if (review.user === user._id) {
                     return <ListReview key={i} review={review} user={user} />
+                  }
+                  return undefined
                 })}
               </>
             )}

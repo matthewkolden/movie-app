@@ -12,7 +12,6 @@ export default function Review({ review, user }) {
     author: review.author,
   })
   const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(true)
 
   function handleChange(evt) {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
@@ -24,7 +23,6 @@ export default function Review({ review, user }) {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault()
-    setIsLoading(true)
     try {
       await updateReview(review._id, formData, user)
     } catch {
@@ -34,12 +32,8 @@ export default function Review({ review, user }) {
   }
 
   useEffect(() => {
-    async function fetchReviews() {
-      await getAllReviews()
-      setIsLoading(false)
-    }
-    fetchReviews()
-  }, [isLoading])
+    getAllReviews()
+  }, [])
 
   return (
     <>

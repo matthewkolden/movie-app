@@ -51,6 +51,7 @@ function useHook() {
         rating: data.Rated,
       })
       setMovies((oldMovies) => [...oldMovies, newMovie])
+      getAllMovies()
     } catch (error) {
       console.error(error)
     }
@@ -78,6 +79,7 @@ function useHook() {
         rating: data.Rated,
       })
       const results = movieService.updateMovie(_id, updatedMovie)
+      getAllMovies()
       return results
     } catch (error) {
       console.error(error)
@@ -93,6 +95,7 @@ function useHook() {
         moviesCopy.splice(indexToRemove, 1)
         setMovies([...moviesCopy])
       }
+      getAllMovies()
     } catch (error) {
       console.error(error)
     }
@@ -102,6 +105,7 @@ function useHook() {
   const location = useLocation()
   const moviePageLink = location.pathname
 
+  //
   async function createReview(review, movie, user) {
     try {
       const moviePoster = localStorage.getItem('moviePoster') // Retrieve the URL from local storage
@@ -133,6 +137,7 @@ function useHook() {
   async function updateReview(id, review, user) {
     try {
       const results = await reviewService.updateReview(id, review, user)
+      getAllReviews()
       return results
     } catch (error) {
       console.error(error)
@@ -154,10 +159,7 @@ function useHook() {
   }
 
   useEffect(() => {
-    async function fetchMovies() {
-      await getAllMovies()
-    }
-    fetchMovies()
+    getAllMovies()
   }, [])
 
   return {
@@ -176,6 +178,6 @@ function useHook() {
     updateReview,
     setReviews,
     deleteReview,
-    moviePageLink
+    moviePageLink,
   }
 }

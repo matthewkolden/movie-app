@@ -15,10 +15,7 @@ export default function MoviePage({ user }) {
   const id = params.id
 
   useEffect(() => {
-    async function grabMovie() {
-      await setMovie(getMoviePage(id))
-    }
-    grabMovie()
+    setMovie(getMoviePage(id))
     getAllReviews()
   }, [])
 
@@ -28,7 +25,11 @@ export default function MoviePage({ user }) {
         <>
           <div className={moviePageClasses.imageContainer}>
             <div className={moviePageClasses.imageFlexContainer}>
-              <img className={moviePageClasses.image} src={movie.Poster} />
+              <img
+                className={moviePageClasses.image}
+                src={movie.Poster}
+                alt={`${movie.Title} poster`}
+              />
               <div className="flex flex-col gap-6 ">
                 <h1 className={moviePageClasses.title}>{movie.Title}</h1>
                 <div className={moviePageClasses.div}>
@@ -70,8 +71,10 @@ export default function MoviePage({ user }) {
               {reviews && reviews.length > 0 && (
                 <>
                   {reviews.map((review, i) => {
-                    if (review.movie === movie.imdbID)
+                    if (review.movie === movie.imdbID) {
                       return <Review key={i} review={review} user={user} />
+                    }
+                    return undefined
                   })}
                 </>
               )}
